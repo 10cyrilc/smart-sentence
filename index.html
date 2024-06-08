@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Sentence - String Actions</title>
+    <meta
+      name="description"
+      content="Smart Sentence is a web application that provides various string manipulation actions such as converting text to different cases, counting characters, words, sentences, and paragraphs."
+    />
+    <meta
+      name="keywords"
+      content="Smart Sentence, String Manipulation, Text Case Converter, Character Counter, Word Counter, Sentence Counter, Paragraph Counter"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <!-- Add FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><h1 class="logo">Smart Sentence</h1></li>
+        <li>
+          <a href="https://github.com/10cyrilc/" target="_blank"
+            ><i class="fab fa-github"></i
+          ></a>
+        </li>
+      </ul>
+    </nav>
+    <div class="container">
+      <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+      <div class="counters">
+        <div id="charCount">Characters: 0</div>
+        <div id="charCountNoSpaces">Characters (no spaces): 0</div>
+        <div id="wordCount">Words: 0</div>
+        <div id="sentenceCount">Sentences: 0</div>
+        <div id="paraCount">Paragraphs: 0</div>
+        <div id="readingTime">Reading Time: 00 min 00 sec</div>
+      </div>
+      <div class="actions">
+        <button onclick="convertToUpper()">UPPERCASE</button>
+        <button onclick="convertToLower()">lowercase</button>
+        <button onclick="convertToSentenceCase()">Sentence case</button>
+        <button onclick="convertToTitleCase()">Title Case</button>
+        <button onclick="convertToCamelCase()">camelCase</button>
+        <button onclick="convertToPascalCase()">PascalCase</button>
+        <button onclick="convertToToggleCase()">tOGGLE cASE</button>
+        <button onclick="convertToSnakeCase()">snake_case</button>
+      </div>
+      <div id="output"></div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

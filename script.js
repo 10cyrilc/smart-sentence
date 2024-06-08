@@ -12,14 +12,12 @@ function updateCounts() {
 
 function countCharacters(text) {
   const count = text.length;
-  document.getElementById("charCount").innerText = `Characters: ${count}`;
+  document.getElementById("charCount").innerText = `${count}`;
 }
 
 function countCharactersNoSpaces(text) {
   const count = text.replace(/\s/g, "").length;
-  document.getElementById(
-    "charCountNoSpaces"
-  ).innerText = `Characters (no spaces): ${count}`;
+  document.getElementById("charCountNoSpaces").innerText = ` ${count}`;
 }
 
 function countWords(text) {
@@ -27,7 +25,7 @@ function countWords(text) {
     .trim()
     .split(/\s+/)
     .filter((word) => word !== "").length;
-  document.getElementById("wordCount").innerText = `Words: ${count}`;
+  document.getElementById("wordCount").innerText = `${count}`;
 }
 
 function countSentences(text) {
@@ -35,7 +33,7 @@ function countSentences(text) {
     .split(/[.!?]+/)
     .filter((sentence) => sentence.trim().length > 0);
   const count = sentences.length;
-  document.getElementById("sentenceCount").innerText = `Sentences: ${count}`;
+  document.getElementById("sentenceCount").innerText = `${count}`;
 }
 
 function countParagraphs(text) {
@@ -43,7 +41,7 @@ function countParagraphs(text) {
     .trim()
     .split(/\n+/)
     .filter((paragraph) => paragraph.trim() !== "").length;
-  document.getElementById("paraCount").innerText = `Paragraphs: ${count}`;
+  document.getElementById("paraCount").innerText = `${count}`;
 }
 
 function calculateReadingTime(text) {
@@ -56,9 +54,7 @@ function calculateReadingTime(text) {
   const formattedReadingTime = `${padZero(readingTimeInMinutes)} min ${padZero(
     readingTimeInSeconds
   )} sec`;
-  document.getElementById(
-    "readingTime"
-  ).innerText = `Reading Time: ${formattedReadingTime}`;
+  document.getElementById("readingTime").innerText = `${formattedReadingTime}`;
 }
 
 function padZero(num) {

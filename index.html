@@ -31,14 +31,57 @@
       </ul>
     </nav>
     <div class="container">
-      <textarea id="inputText" placeholder="Enter your text here..."></textarea>
-      <div class="counters">
-        <div id="charCount">Characters: 0</div>
-        <div id="charCountNoSpaces">Characters (no spaces): 0</div>
-        <div id="wordCount">Words: 0</div>
-        <div id="sentenceCount">Sentences: 0</div>
-        <div id="paraCount">Paragraphs: 0</div>
-        <div id="readingTime">Reading Time: 00 min 00 sec</div>
+      <div class="main-wrapper">
+        <textarea
+          id="inputText"
+          placeholder="Enter your text here..."
+        ></textarea>
+        <div class="counters">
+          <div class="counter-data">
+            <div class="data-wrapper">
+              <p id="charCount" class="data-text">0</p>
+              <p id="charCount-placeholder" class="data-text-placeholder">
+                Characters
+              </p>
+            </div>
+            <div class="data-wrapper">
+              <p id="wordCount" class="data-text">0</p>
+              <p id="wordCount-placeholder" class="data-text-placeholder">
+                Words
+              </p>
+            </div>
+            <div class="data-wrapper">
+              <p id="sentenceCount" class="data-text">0</p>
+              <p id="sentenceCount-placeholder" class="data-text-placeholder">
+                Sentences
+              </p>
+            </div>
+            <div class="data-wrapper">
+              <p id="paraCount" class="data-text">0</p>
+              <p id="paraCount-placeholder" class="data-text-placeholder">
+                Paragraphs
+              </p>
+            </div>
+          </div>
+          <div class="counter-data">
+            <div class="data-wrapper">
+              <p id="charCountNoSpaces" class="data-text">0</p>
+              <p
+                id="charCountNoSpaces-placeholder"
+                class="data-text-placeholder"
+              >
+                Characters (no spaces)
+              </p>
+            </div>
+
+            <div class="data-wrapper">
+              <p id="readingTime" class="data-text">00 min 00 sec</p>
+              <p id="readingTime-placeholder" class="data-text-placeholder">
+                Reading Time
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="actions">
         <button onclick="convertToUpper()">UPPERCASE</button>

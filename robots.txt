@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://smart-sentence.10cyrilc.in/sitemap.xml

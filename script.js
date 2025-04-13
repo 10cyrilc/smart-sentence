@@ -7,6 +7,7 @@ function updateCounts() {
   countWords(text);
   countSentences(text);
   countParagraphs(text);
+  avgWordLength(text);
   calculateReadingTime(text);
 }
 
@@ -44,6 +45,15 @@ function countParagraphs(text) {
   document.getElementById("paraCount").innerText = `${count}`;
 }
 
+function avgWordLength(text) {
+  const words = text.trim().split(/\s+/);
+  const totalLength = words.reduce((acc, word) => acc + word.length, 0);
+  const avgLength = totalLength / words.length;
+  document.getElementById("avgWordLength").innerText = `${avgLength.toFixed(
+    2
+  )}`;
+}
+
 function calculateReadingTime(text) {
   const words = text
     .trim()
@@ -62,18 +72,20 @@ function padZero(num) {
 }
 
 function convertToUpper() {
-  const text = document.getElementById("inputText").value.toUpperCase();
-  document.getElementById("output").innerText = text;
+  document.getElementById("output").value = document
+    .getElementById("inputText")
+    .value.toUpperCase();
 }
 
 function convertToLower() {
-  const text = document.getElementById("inputText").value.toLowerCase();
-  document.getElementById("output").innerText = text;
+  document.getElementById("output").value = document
+    .getElementById("inputText")
+    .value.toLowerCase();
 }
 
 function convertToSentenceCase() {
   const paragraphs = document.getElementById("inputText").value.split("\n");
-  const sentenceCased = paragraphs
+  document.getElementById("output").value = paragraphs
     .map((paragraph) => {
       const trimmedParagraph = paragraph.trim();
       return (
@@ -82,12 +94,11 @@ function convertToSentenceCase() {
       );
     })
     .join("\n");
-  document.getElementById("output").innerText = sentenceCased;
 }
 
 function convertToTitleCase() {
   const paragraphs = document.getElementById("inputText").value.split("\n");
-  const titleCased = paragraphs
+  document.getElementById("output").value = paragraphs
     .map((paragraph) => {
       return paragraph
         .toLowerCase()
@@ -98,12 +109,11 @@ function convertToTitleCase() {
         .join(" ");
     })
     .join("\n");
-  document.getElementById("output").innerText = titleCased;
 }
 
 function convertToCamelCase() {
   const paragraphs = document.getElementById("inputText").value.split("\n");
-  const camelCased = paragraphs
+  document.getElementById("output").value = paragraphs
     .map((paragraph) => {
       const words = paragraph.toLowerCase().split(" ");
       for (let i = 1; i < words.length; i++) {
@@ -112,12 +122,11 @@ function convertToCamelCase() {
       return words.join("");
     })
     .join("\n");
-  document.getElementById("output").innerText = camelCased;
 }
 
 function convertToPascalCase() {
   const paragraphs = document.getElementById("inputText").value.split("\n");
-  const pascalCased = paragraphs
+  document.getElementById("output").value = paragraphs
     .map((paragraph) => {
       return paragraph
         .toLowerCase()
@@ -128,7 +137,6 @@ function convertToPascalCase() {
         .join("");
     })
     .join("\n");
-  document.getElementById("output").innerText = pascalCased;
 }
 
 function convertToToggleCase() {
@@ -141,24 +149,22 @@ function convertToToggleCase() {
       result += text[i].toUpperCase();
     }
   }
-  document.getElementById("output").innerText = result;
+  document.getElementById("output").value = result;
 }
 
 function convertToSnakeCase() {
-  const text = document
+  document.getElementById("output").value = document
     .getElementById("inputText")
     .value.toLowerCase()
     .replace(/\s+/g, "_");
-  document.getElementById("output").innerText = text;
 }
 
 function convertToDotCase() {
-  const text = document
+  document.getElementById("output").value = document
     .getElementById("inputText")
     .value.toLowerCase()
     .replace(/\s+/g, ".")
     .replace(/[^a-z0-9.]/g, "");
-  document.getElementById("output").innerText = text;
 }
 
 function convertToAlternatingCase() {
@@ -167,24 +173,24 @@ function convertToAlternatingCase() {
   for (let i = 0; i < text.length; i++) {
     result += i % 2 === 0 ? text[i].toLowerCase() : text[i].toUpperCase();
   }
-  document.getElementById("output").innerText = result;
+  document.getElementById("output").value = result;
 }
 
 function convertToKebabCase() {
-  const text = document
+  document.getElementById("output").value = document
     .getElementById("inputText")
     .value.toLowerCase()
     .replace(/\s+/g, "-")
     .replace(/[^a-z0-9-]/g, "");
-  document.getElementById("output").innerText = text;
 }
 
-function showSnackbar(message) {
+function showSnackbar(message, type = "info") {
   const snackbar = document.getElementById("snackbar");
   snackbar.innerText = message;
-  snackbar.classList.add("show");
+  snackbar.classList.remove("success", "error", "info");
+  snackbar.classList.add(type, "show");
   setTimeout(() => {
-    snackbar.classList.remove("show");
+    snackbar.classList.remove("show", type);
     snackbar.innerText = "";
   }, 3000);
 }
@@ -193,25 +199,27 @@ function clearText() {
   const inputText = document.getElementById("inputText");
   const outputText = document.getElementById("output");
   inputText.value = "";
-  outputText.innerText = "";
+  outputText.value = "";
   updateCounts();
-  showSnackbar("Text cleared!");
+  showSnackbar("Text cleared!", "success");
 }
 
 function copyToClipboard() {
-  const outputText = document.getElementById("output").innerText;
-  console.log(outputText);
+  const outputText = document.getElementById("output").value;
   if (outputText) {
     navigator.clipboard
       .writeText(outputText)
       .then(() => {
-        showSnackbar("Text copied to clipboard!");
+        showSnackbar("Text copied to clipboard!", "success");
       })
       .catch((err) => {
         console.error("Failed to copy: ", err);
-        showSnackbar("Failed to copy text. Please try again.");
+        showSnackbar("Failed to copy text. Please try again.", "error");
       });
   } else {
-    showSnackbar("Nothing to copy! Please generate some output first.");
+    showSnackbar(
+      "Nothing to copy! Please generate some output first.",
+      "error"
+    );
   }
 }

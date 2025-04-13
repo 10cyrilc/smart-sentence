@@ -151,3 +151,67 @@ function convertToSnakeCase() {
     .replace(/\s+/g, "_");
   document.getElementById("output").innerText = text;
 }
+
+function convertToDotCase() {
+  const text = document
+    .getElementById("inputText")
+    .value.toLowerCase()
+    .replace(/\s+/g, ".")
+    .replace(/[^a-z0-9.]/g, "");
+  document.getElementById("output").innerText = text;
+}
+
+function convertToAlternatingCase() {
+  const text = document.getElementById("inputText").value;
+  let result = "";
+  for (let i = 0; i < text.length; i++) {
+    result += i % 2 === 0 ? text[i].toLowerCase() : text[i].toUpperCase();
+  }
+  document.getElementById("output").innerText = result;
+}
+
+function convertToKebabCase() {
+  const text = document
+    .getElementById("inputText")
+    .value.toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "");
+  document.getElementById("output").innerText = text;
+}
+
+function showSnackbar(message) {
+  const snackbar = document.getElementById("snackbar");
+  snackbar.innerText = message;
+  snackbar.classList.add("show");
+  setTimeout(() => {
+    snackbar.classList.remove("show");
+    snackbar.innerText = "";
+  }, 3000);
+}
+
+function clearText() {
+  const inputText = document.getElementById("inputText");
+  const outputText = document.getElementById("output");
+  inputText.value = "";
+  outputText.innerText = "";
+  updateCounts();
+  showSnackbar("Text cleared!");
+}
+
+function copyToClipboard() {
+  const outputText = document.getElementById("output").innerText;
+  console.log(outputText);
+  if (outputText) {
+    navigator.clipboard
+      .writeText(outputText)
+      .then(() => {
+        showSnackbar("Text copied to clipboard!");
+      })
+      .catch((err) => {
+        console.error("Failed to copy: ", err);
+        showSnackbar("Failed to copy text. Please try again.");
+      });
+  } else {
+    showSnackbar("Nothing to copy! Please generate some output first.");
+  }
+}

@@ -1,120 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Smart Sentence – The Ultimate Text Formatter & String Tool</title>
 
     <!-- Basic SEO -->
-    <meta name="description"
-          content="Smart Sentence is the ultimate string manipulation tool for converting text cases, counting characters, words, and more — fast and smart."/>
-    <meta name="keywords"
-          content="Smart Sentence, String Manipulation, Text Formatter, Text Case Converter, Word Counter, Character Counter, Sentence Counter, Paragraph Counter, Reading Time Estimator"/>
-    <meta name="author" content="Smart Sentence Team"/>
+    <meta
+      name="description"
+      content="Smart Sentence is the ultimate string manipulation tool for converting text cases, counting characters, words, and more — fast and smart."
+    />
+    <meta
+      name="keywords"
+      content="Smart Sentence, String Manipulation, Text Formatter, Text Case Converter, Word Counter, Character Counter, Sentence Counter, Paragraph Counter, Reading Time Estimator"
+    />
+    <meta name="author" content="Smart Sentence Team" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Smart Sentence – The Ultimate Text Formatter"/>
-    <meta property="og:description"
-          content="Convert your text into different cases, count words, characters, sentences, paragraphs and get reading time – all in one smart tool."/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://smart-sentence.10cyrilc.in"/>
-    <meta property="og:image" content="https://smart-sentence.10cyrilc.in/assets/og-image.png"/>
+    <meta
+      property="og:title"
+      content="Smart Sentence – The Ultimate Text Formatter"
+    />
+    <meta
+      property="og:description"
+      content="Convert your text into different cases, count words, characters, sentences, paragraphs and get reading time – all in one smart tool."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://smart-sentence.10cyrilc.in" />
+    <meta
+      property="og:image"
+      content="https://smart-sentence.10cyrilc.in/assets/og-image.png"
+    />
 
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:title" content="Smart Sentence – The Ultimate Text Formatter"/>
-    <meta name="twitter:description"
-          content="A smart and efficient tool to manipulate and analyze your text effortlessly."/>
-    <meta name="twitter:image" content="https://smart-sentence.10cyrilc.in/assets/og-image.png"/>
-    <meta name="twitter:site" content="@SmartSentence"/>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Smart Sentence – The Ultimate Text Formatter"
+    />
+    <meta
+      name="twitter:description"
+      content="A smart and efficient tool to manipulate and analyze your text effortlessly."
+    />
+    <meta
+      name="twitter:image"
+      content="https://smart-sentence.10cyrilc.in/assets/og-image.png"
+    />
+    <meta name="twitter:site" content="@SmartSentence" />
 
     <!-- Favicon -->
-    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
 
     <!-- Schema.org -->
     <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebApplication",
-            "name": "Smart Sentence",
-            "url": "https://smart-sentence.10cyrilc.in/",
-            "description": "Smart Sentence is the ultimate tool for converting text cases and analyzing string metrics like characters, words, sentences, and more.",
-            "applicationCategory": "TextEditing",
-            "operatingSystem": "All",
-            "inLanguage": "en",
-            "image": "https://smart-sentence.10cyrilc.in/assets/og-image.png"
-        }
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Smart Sentence",
+        "url": "https://smart-sentence.10cyrilc.in/",
+        "description": "Smart Sentence is the ultimate tool for converting text cases and analyzing string metrics like characters, words, sentences, and more.",
+        "applicationCategory": "TextEditing",
+        "operatingSystem": "All",
+        "inLanguage": "en",
+        "image": "https://smart-sentence.10cyrilc.in/assets/og-image.png"
+      }
     </script>
     <!-- Styles -->
-    <link rel="stylesheet" href="./styles.css"/>
+    <link rel="stylesheet" href="./styles.css" />
     <!-- Canonical -->
-    <link rel="canonical" href="https://smart-sentence.10cyrilc.in/"/>
+    <link rel="canonical" href="https://smart-sentence.10cyrilc.in/" />
+  </head>
 
-</head>
-<body>
-<nav class="navbar">
-    <ul class="nav-links">
-        <li><h1 class="logo">Smart Sentence</h1></li>
+  <body>
+    <nav class="navbar">
+      <ul class="nav-links">
         <li>
-            <a href="https://github.com/10cyrilc/" target="_blank"
-            >
-                <img src="/assets/github.png" alt="Github Logo" width=25/>
-            </a>
+          <h1 class="logo">Smart Sentence</h1>
         </li>
-    </ul>
-</nav>
-<div class="container">
-    <div class="main-wrapper">
-        <label for="inputText" class="hidden"></label><textarea
-            id="inputText"
-            placeholder="Enter your text here..."
-    ></textarea>
+        <li>
+          <a href="https://github.com/10cyrilc/" target="_blank">
+            <img src="/assets/github.png" alt="Github Logo" width="25" />
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="container">
+      <div class="main-wrapper">
+        <label for="inputText" class="hidden"></label>
+        <textarea
+          id="inputText"
+          placeholder="Enter your text here..."
+        ></textarea>
         <div class="counters">
-            <div class="counter-data">
-                <div class="data-wrapper">
-                    <p id="charCount" class="data-text">0</p>
-                    <p id="charCount-placeholder" class="data-text-placeholder">
-                        Characters
-                    </p>
-                </div>
-                <div class="data-wrapper">
-                    <p id="wordCount" class="data-text">0</p>
-                    <p id="wordCount-placeholder" class="data-text-placeholder">
-                        Words
-                    </p>
-                </div>
-                <div class="data-wrapper">
-                    <p id="sentenceCount" class="data-text">0</p>
-                    <p id="sentenceCount-placeholder" class="data-text-placeholder">
-                        Sentences
-                    </p>
-                </div>
-                <div class="data-wrapper">
-                    <p id="paraCount" class="data-text">0</p>
-                    <p id="paraCount-placeholder" class="data-text-placeholder">
-                        Paragraphs
-                    </p>
-                </div>
-                <div class="data-wrapper">
-                    <p id="charCountNoSpaces" class="data-text">0</p>
-                    <p
-                            id="charCountNoSpaces-placeholder"
-                            class="data-text-placeholder"
-                    >
-                        Characters (no spaces)
-                    </p>
-                </div>
+          <div class="counter-data">
+            <div class="data-wrapper">
+              <p id="charCount" class="data-text">0</p>
+              <p id="charCount-placeholder" class="data-text-placeholder">
+                Characters
+              </p>
             </div>
             <div class="data-wrapper">
-                <p id="readingTime" class="data-text">00 min 00 sec</p>
-                <p id="readingTime-placeholder" class="data-text-placeholder">
-                    Reading Time
-                </p>
+              <p id="wordCount" class="data-text">0</p>
+              <p id="wordCount-placeholder" class="data-text-placeholder">
+                Words
+              </p>
             </div>
+            <div class="data-wrapper">
+              <p id="sentenceCount" class="data-text">0</p>
+              <p id="sentenceCount-placeholder" class="data-text-placeholder">
+                Sentences
+              </p>
+            </div>
+            <div class="data-wrapper">
+              <p id="paraCount" class="data-text">0</p>
+              <p id="paraCount-placeholder" class="data-text-placeholder">
+                Paragraphs
+              </p>
+            </div>
+            <div class="data-wrapper">
+              <p id="charCountNoSpaces" class="data-text">0</p>
+              <p
+                id="charCountNoSpaces-placeholder"
+                class="data-text-placeholder"
+              >
+                Characters (no spaces)
+              </p>
+            </div>
+          </div>
+          <div class="data-wrapper">
+            <p id="readingTime" class="data-text">00 min 00 sec</p>
+            <p id="readingTime-placeholder" class="data-text-placeholder">
+              Reading Time
+            </p>
+          </div>
         </div>
-    </div>
-    <div class="actions">
+      </div>
+      <div class="actions">
         <button onclick="convertToUpper()">UPPERCASE</button>
         <button onclick="convertToLower()">lowercase</button>
         <button onclick="convertToSentenceCase()">Sentence case</button>
@@ -123,10 +145,13 @@
         <button onclick="convertToPascalCase()">PascalCase</button>
         <button onclick="convertToToggleCase()">tOGGLE cASE</button>
         <button onclick="convertToSnakeCase()">snake_case</button>
+        <button onclick="convertToKebabCase()">kebab-case</button>
+        <button onclick="convertToAlternatingCase()">Alternating Case</button>
+        <button onclick="convertToDotCase()">dot.case</button>
+      </div>
+      <label for="output"></label>
+      <textarea readonly rows="20" id="output"></textarea>
     </div>
-    <label for="output"></label><textarea readonly rows="20" id="output"></textarea>
-</div>
-<script src="./script.js"></script>
-
-</body>
+    <script src="./script.js"></script>
+  </body>
 </html>

@@ -90,6 +90,7 @@
         <label for="inputText" class="hidden"></label>
         <textarea
           id="inputText"
+          name="inputText"
           placeholder="Enter your text here..."
         ></textarea>
         <div class="counters">
@@ -127,6 +128,12 @@
                 Characters (no spaces)
               </p>
             </div>
+            <div class="data-wrapper">
+              <p id="avgWordLength" class="data-text">0.0</p>
+              <p id="avgWordLength-placeholder" class="data-text-placeholder">
+                Avg Word Length
+              </p>
+            </div>
           </div>
           <div class="data-wrapper">
             <p id="readingTime" class="data-text">00 min 00 sec</p>
@@ -151,6 +158,11 @@
       </div>
       <label for="output"></label>
       <textarea readonly rows="20" id="output"></textarea>
+    </div>
+    <div id="snackbar" class="snackbar" aria-live="polite"></div>
+    <div class="output-actions active">
+      <button onclick="clearText()"><span>Clear</span></button>
+      <button onclick="copyToClipboard()"><span>Copy</span></button>
     </div>
     <script src="./script.js"></script>
   </body>
